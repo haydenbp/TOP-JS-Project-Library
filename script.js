@@ -4,7 +4,7 @@ class Book{
 
     constructor(name,author,pages){
 
-      this.name = name
+      this.title = name
       
       this.author = author
 
@@ -25,10 +25,11 @@ function addBookToLibrary(name,author,pages){
 }
 
 addBookToLibrary('Hobbit','tolken',101)
+addBookToLibrary('LOTR','tolken',305)
 
 console.log(myLibary)
 
-const body = document.querySelector('#body');
+const body = document.querySelector('#booklist');
 
 console.log(body)
 
@@ -45,5 +46,5 @@ for(let i = 0; i < myLibary.length; i++ ){
 
   }
 
-  body.appendChild(bookDiv)
+  body.append(bookDiv)
 }
