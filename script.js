@@ -26,11 +26,7 @@ class Book{
 
 }
 
-myLibrary.push(new Book('hobbit','tolkien',103,true))
-myLibrary.push(new Book('hobbit','tolkien',101,true))
-myLibrary.push(new Book('hobbit','tolkien',102,true))
-
-console.log(myLibrary)
+myLibrary.push(new Book('The Hobbit','J.R.R Tolkien',303,true))
 
 //function that adds book to library
 function addBookToLibrary(Title,Author,Pages,Read){
@@ -127,27 +123,9 @@ function render(){
   }
 }
 
-//displays input form 
-/*
-newBtn.addEventListener('click', ()=>{
-
-  popUp.style.display = 'block'
-  
-})*/
-
-submitBtn.addEventListener('click', () =>{
-
-  submitForm()
-
-  render()
-
-  
-
-})
 
 
-
-
+// creates new book from form data and adds to myLibrary array
 function submitForm(){
 
   console.log(popUp.pages.value)
@@ -176,6 +154,17 @@ function submitForm(){
 
 
 }
+
+//submits form data and adds renders new book
+submitBtn.addEventListener('click', () =>{
+
+  submitForm()
+
+  render()
+
+  
+
+})
 
 
 render()
