@@ -1,8 +1,15 @@
 //store books in an array
 let myLibrary = [];
-const newBtn = getElementById('addBook')
-const popUp = getElementById('popup')
+const newBtn = document.getElementById('addBook')
+const popUp = document.getElementById('newBook')
+const submitBtn = document.getElementById('submitForm')
+const readBox = document.getElementById('readForm')
 
+
+//hides the new book form when new button
+newBtn.addEventListener('click', ()=>{
+  popUp.classList.toggle('hide')
+})
 //create class for books
 class Book{
 
@@ -120,35 +127,55 @@ function render(){
   }
 }
 
-//displays input form
-popUp.addEventListener()
+//displays input form 
+/*
+newBtn.addEventListener('click', ()=>{
+
+  popUp.style.display = 'block'
+  
+})*/
+
+submitBtn.addEventListener('click', () =>{
+
+  submitForm()
+
+  render()
+
+  
+
+})
+
+
+
+
+function submitForm(){
+
+  console.log(popUp.pages.value)
+
+  if(popUp.title.value == '' || popUp.author.value == '' || popUp.pages.value == ''){
+
+    alert('Please complete the form')
+
+    return
+
+  }
+
+  if(popUp.pages.value != '' && !Number(popUp.pages.value)){
+
+    alert('Please enter a number')
+
+    return
+  }
+  
+
+  myLibrary.push(new Book(popUp.title.value, popUp.author.value, popUp.pages.value, popUp.read.checked))
+
+  console.log(popUp.title.value)
+
+
+
+
+}
 
 
 render()
-
-  
-
-
-
-
-
-  //create book div
-
-  //create divs for title,author,pages
-
-  //create button for read
-    //event handler
-  
-  //create button for delete
-    //event handler
-
-
-
-
-//new book form that allows users to add books
-
-  // stores entry to object
-
-  // renders divs
-
-

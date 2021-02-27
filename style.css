@@ -1,5 +1,5 @@
 #popup{
-    display: none;
+    display: block;
 }
 
 #read{
@@ -11,4 +11,9 @@
 .notRead{
     background-color: rosybrown !important;
 
+}
+
+.hide{
+
+    display: none !important;
 }
