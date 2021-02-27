@@ -1,220 +1,154 @@
-let myLibary = [];
+//store books in an array
+let myLibrary = [];
+const newBtn = getElementById('addBook')
+const popUp = getElementById('popup')
 
-const bookshelf = document.querySelector('#bookshelf');
+//create class for books
+class Book{
 
-const popUp = document.querySelector('#popup')
+  constructor(Title,Author,Pages,Read){
 
-const newBookButton = document.querySelector('#addBook')
+    this.Title = Title
 
-const submitButton = document.querySelector('#Submit')
+    this.Author = Author
 
+    this.Pages = Pages
 
-
-
-newBookButton.addEventListener('click', () =>{
-
-  popUp.style.display = 'block'}
-
-)
-
-
-//create book
-class Book{ 
-
-    constructor(name,author,pages,read){
-
-      this['Title'] = name
-      
-      this['Author'] = author
-
-      this['Pages'] = pages
-
-      this['Read'] = read
-
-
-    }
-
-
-}
-//add books to library array
-function addBookToLibrary(name,author,pages,read){
-
-    myLibary.push(new Book(name,author,pages,read))
-
-}
-addBookToLibrary('Hobbit','tolken',101,'Read')
-addBookToLibrary('LOTR','tolken',305,'Not Read')
-
-
-
-
-
-for(let i = 0; i < myLibary.length; i++){
-
-
-  let book = document.createElement('div')
-
-  let clearButton = document.createElement('button')
-
-  clearButton.innerText = 'Delete'
-
-  book.className = 'book'
-
-  bookshelf.append(book)
-  
-
-  for(let key in myLibary[i]){
-
-    if(key == 'Read'){
-
-      let read = document.createElement('button')
-
-      read.innerText = myLibary[i][key]
-
-      book.appendChild(read)
-    } 
-    
-    else{
-
-      let bookDiv = document.createElement('div')
-      
-      bookDiv.className = key
-
-      bookDiv.innerText += myLibary[i][key]
-
-
-
-      book.appendChild(bookDiv)
-
-    }
-
-  }
-
-  book.appendChild(clearButton)
-
-  
-
-  
-
-  
-}
-
-
-submitButton.addEventListener('click', () =>{
-  
-const formAuthor = document.querySelector('#author').value
-
-const formTitle = document.querySelector('#title').value
-
-const formPages = document.querySelector('#pages').value
-
-const formRead = document.querySelector('#read').value
-
-let bookDiv = document.createElement('div')
-
-popUp.style.display = 'none'
-
-
-
-addBookToLibrary(formTitle,formAuthor,formPages,formRead)
-
-
-console.log('reeee',myLibary[myLibary.length-1])
-
-let book = document.createElement('div')
-
-let clearButton = document.createElement('button')
-
-clearButton.innerText = 'Delete'
-
-book.className = 'book'
-
-bookshelf.append(book)
-    
-
-  for(let key in myLibary[myLibary.length-1]){
-
-    if(key == 'Read'){
-
-      let read = document.createElement('button')
-  
-      read.innerText = myLibary[myLibary.length-1][key]
-  
-      book.appendChild(read)
-    } 
-    
-    else{
-  
-      let bookDiv = document.createElement('div')
-      
-      bookDiv.className = key
-  
-      bookDiv.innerText += myLibary[myLibary.length-1][key]
-  
-  
-  
-      book.appendChild(bookDiv)
-  
-    }    
-    book.appendChild(clearButton)
-  }
-
-  document.querySelectorAll('input').forEach(element => {
-
-    element.value = ''
-    
-  });
-
-  bookshelf.append(bookDiv)
-
-  
-}
-
-
-)
-
-let book = document.createElement('div')
-
-let clearButton = document.createElement('button')
-
-clearButton.innerText = 'Delete'
-
-book.className = 'book'
-
-bookshelf.append(book)
-
-
-for(let key in myLibary[i]){
-
-  if(key == 'Read'){
-
-    let read = document.createElement('button')
-
-    read.innerText = myLibary[i][key]
-
-    book.appendChild(read)
-  } 
-  
-  else{
-
-    let bookDiv = document.createElement('div')
-    
-    bookDiv.className = key
-
-    bookDiv.innerText += myLibary[i][key]
-
-
-
-    book.appendChild(bookDiv)
-
+    this.Read = Read
   }
 
 }
 
-book.appendChild(clearButton)
+myLibrary.push(new Book('hobbit','tolkien',103,true))
+myLibrary.push(new Book('hobbit','tolkien',101,true))
+myLibrary.push(new Book('hobbit','tolkien',102,true))
+
+console.log(myLibrary)
+
+//function that adds book to library
+function addBookToLibrary(Title,Author,Pages,Read){
+
+  myLibrary.push(new Book(Title,Author,Pages,Read))
+
+}
+const bookShelf = document.getElementById('bookshelf')
+
+//render function, creates book 
+function createBook(bookInArray){
+ 
+  const bookDiv = document.createElement('div')
+
+  const titleDiv = document.createElement('div')
+
+  const authorDiv = document.createElement('div')
+
+  const pagesDiv = document.createElement('div')
+
+  const readBtn = document.createElement('button')
+
+  const deleteBtn = document.createElement('button')
+
+  //create divs
+  //book div
+  bookDiv.classList = 'book'
+  bookDiv.id = myLibrary.indexOf(bookInArray)
+  bookShelf.appendChild(bookDiv)
+  
+  //title div
+  titleDiv.classList = 'title'
+  titleDiv.innerText = bookInArray.Title
+  bookDiv.appendChild(titleDiv)
+  
+  //author div
+  authorDiv.classList = 'author'
+  authorDiv.innerText = bookInArray.Author
+  bookDiv.appendChild(authorDiv)
+
+  //pages /div
+  pagesDiv.classList = 'pages'
+  pagesDiv.innerText = `Pages Read: ${bookInArray.Pages}`
+  bookDiv.appendChild(pagesDiv)
+
+  //read button div
+  readBtn.classList = 'readBtn'
+  //checks if read or not
+  if(bookInArray.Read == true){
+    readBtn.innerText = 'Read'
+    readBtn.classList = 'read'
+  } else{
+    readBtn.innerText = 'Not Read'
+    readBtn.classList = 'notRead'
+  }
+
+  bookDiv.appendChild(readBtn)
+  //changes read to not read and vice versa when clicked
+  readBtn.addEventListener('click', () =>{
+    bookInArray.Read = !bookInArray.Read
+    console.log(bookInArray.read)
+    render()
+  })
+
+  //delete button div
+
+  deleteBtn.classList = 'deleteBtn'
+  deleteBtn.innerText = 'Delete'
+  bookDiv.appendChild(deleteBtn)
+
+  deleteBtn.addEventListener('click', () =>{
+
+    myLibrary.splice(myLibrary.indexOf(bookInArray),1)
+
+    console.log(myLibrary)
+
+    render()
+
+    
+
+  })
+
+}
+
+//renders all books in myLibrary Array
+function render(){
+
+  while (bookShelf.firstChild) {
+    bookShelf.removeChild(bookShelf.firstChild);}
+
+  for(let i = 0; i < myLibrary.length; i++){
+
+    createBook(myLibrary[i])
+  }
+}
+
+//displays input form
+popUp.addEventListener()
+
+
+render()
+
+  
 
 
 
-//render function
-//delete function
-//show form
+
+
+  //create book div
+
+  //create divs for title,author,pages
+
+  //create button for read
+    //event handler
+  
+  //create button for delete
+    //event handler
+
+
+
+
+//new book form that allows users to add books
+
+  // stores entry to object
+
+  // renders divs
+
+

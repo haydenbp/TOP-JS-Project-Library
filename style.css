@@ -1,3 +1,14 @@
 #popup{
     display: none;
 }
+
+#read{
+
+    background-color: lightgreen
+}
+
+
+.notRead{
+    background-color: rosybrown !important;
+
+}
