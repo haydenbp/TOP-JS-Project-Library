@@ -1,70 +1,167 @@
-
-
-header{
-   text-align: center;
-   font-size: 75px;
-}
-
-#buttonContainer{
-    width: 100vw;
-
-}
-
-#addBook{
-
-    margin: 0;
-    position: absolute;
-    left: 48%;
+html{
+    background-color: #3E363F;
+  }
+  
+  header{
+    display: flex;
+    justify-content: center;
+     text-align: center;
+     font-size: 75px
+     
+  }
+  
+  #addBookContainer{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+  
+  }
+  
+  #addBook{
+    
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 55px;
+    padding:10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-width: 4px;
     
     
-}
-
-#bookshelf{
-    display: inline-grid;
-    margin: auto;
-    grid-template-columns: repeat(6, 1fr);
-    background-color: rosybrown;
-    grid-gap: 10px 10px;
-}
-
-.book{
-   
-    
-    width: 150px;
+  }
+  #bookshelf{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+  }
+  
+  .book{
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 300px;
-    border: solid 10px;
-}
-div{
-    width: 100px;
-    height: 50px;
-    padding: 10px
-}
-
-.notRead,.read{
-    width: 75px;
-    margin-top: 36px;
-    margin-right: 20px;
-   
-}
-
-
-#newBook{
-    display: none;
-}
-
-#read{
-
-    background-color: lightgreen
-}
-
-
-.notRead{
-    background-color: rgba(209, 31, 31, 0.658) !important;
-
-}
-
-.hide{
-
-    display: block !important;
+    width: 250px;
+    background-color: #fffce8;
+    border: 5px solid black;
+    border-radius: 10px;
     
-}
+    
+  
+  }
+  
+  .title{
+    font-size: 35px !important;
+    margin-top: 10px;
+  }
+  
+  .pages,.title,.author{
+    font-size: 30px;
+    margin-bottom: 20px;
+    
+  }
+  
+  
+  
+  .read{
+      font-size: 20px;
+      width:150px;
+      height: 30px;
+      margin-bottom: 20px;
+      border: 2px solid black;
+    border-radius: 10px;
+      background-color: #b8b42d;
+  }
+  
+  
+  .notRead{
+    font-size: 20px; 
+    width:150px;
+     height: 30px;
+     margin-bottom: 20px;
+      border: 2px solid black;
+    border-radius: 10px;
+     background-color: #dd403a !important;
+  
+  }
+  
+  .deleteBtn{
+      border: 2px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 150px;
+    height: 30px; 
+  }
+  
+  .hide{
+  
+      display: block !important;
+      
+  }
+  
+  #popup{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+    
+  /* Modal Content/Box */
+  #newBook {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 500px;
+    height: 300px;
+    background-color:  #fffce8;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 30px;
+    /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+    #titleForm,#authorForm,#pagesForm{
+    font-size: 25px;
+    margin: 10px;
+    
+  }
+
+  #submitForm{
+      font-size: 15px;
+      margin: 10px;
+  }
+  
+  #readContainer{
+    margin: 10px;
+  }
+  
+  label{
+    font-size: 25px;
+  }

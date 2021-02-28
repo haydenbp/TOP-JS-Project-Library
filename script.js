@@ -2,17 +2,21 @@
 let myLibrary = [];
 const newBtn = document.getElementById('addBook')
 const popUp = document.getElementById('newBook')
+const popUpContainer = document.getElementById('popup')
 const submitBtn = document.getElementById('submitForm')
+const closeBtn = document.querySelector('.close')
 const readBox = document.getElementById('readForm')
 
-
+closeBtn.addEventListener('click', ()=>{
+  hideForm()
+})
 //hides/shows the new book form when new book buton is clicked
 newBtn.addEventListener('click', ()=>{
   hideForm()
 })
 
 function hideForm(){
-  popUp.classList.toggle('hide')
+  popUpContainer.classList.toggle('hide')
 }
 //create class for books
 class Book{
