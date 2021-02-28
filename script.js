@@ -6,10 +6,14 @@ const submitBtn = document.getElementById('submitForm')
 const readBox = document.getElementById('readForm')
 
 
-//hides the new book form when new button
+//hides/shows the new book form when new book buton is clicked
 newBtn.addEventListener('click', ()=>{
-  popUp.classList.toggle('hide')
+  hideForm()
 })
+
+function hideForm(){
+  popUp.classList.toggle('hide')
+}
 //create class for books
 class Book{
 
@@ -150,7 +154,7 @@ function submitForm(){
 
   console.log(popUp.title.value)
 
-
+  hideForm()
 
 
 }
