@@ -6,24 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
-<body>
-<button id = 'addBook'>New Book</button>
+<header>Library</header>
+<div id = 'buttonContainer'>
+    <button id = 'addBook' >Add New Book</button>
 
-<div id = 'booklist'></div>
+</div>
+
+<body>
+
+<div id = 'bookshelf'>
+
+
+
+</div>
 
 <div id = 'popup'>
-    
-        <h2>Add Book</h2>
-        <input type="text" id = 'title' placeholder="Title"></input>
-        <input type="text" id = 'author' placeholder="Author"></input>
-        <input type="text" id = 'pages' placeholder="Pages"></input>
-        <input type="text" id = 'read' placeholder="Read"></input>
-        <input type="text" id = 'notes' placeholder="Notes"></input>
-        <button type="text" id = 'Submit'>Submit</button>
-   
 
+
+
+
+    <form id="newBook" >
+        <input name = 'title' type="text" id = 'titleForm' placeholder="Title"></input>
+        <input name = 'author' type="text" id = 'authorForm' placeholder="Author"></input>
+        <input name = 'pages' type="text" id = 'pagesForm' placeholder="Pages"></input>
+        <input name = 'read' type = 'checkbox' id = 'readForm' checked >Read</input>
+        <button type = 'button' id = 'submitForm' >Submit</button>
+    </form>
+    
 
 </div>
 
