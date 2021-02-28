@@ -73,7 +73,7 @@ function createBook(bookInArray){
 
   //pages /div
   pagesDiv.classList = 'pages'
-  pagesDiv.innerText = `Pages Read: ${bookInArray.Pages}`
+  pagesDiv.innerText = `Pages: ${bookInArray.Pages}`
   bookDiv.appendChild(pagesDiv)
 
   //read button div
@@ -153,6 +153,8 @@ function submitForm(){
   myLibrary.push(new Book(popUp.title.value, popUp.author.value, popUp.pages.value, popUp.read.checked))
 
   console.log(popUp.title.value)
+
+  popUp.reset();
 
   hideForm()
 
